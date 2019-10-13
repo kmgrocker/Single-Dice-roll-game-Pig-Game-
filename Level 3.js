@@ -32,6 +32,8 @@ player2CurrentScore.textContent = 0;
 player2TotalScore = document.querySelector("#score-1");
 player2TotalScore.textContent = 0;
 
+//General selector
+
 var diceFace = [
   "dice-1.png",
   "dice-2.png",
@@ -41,6 +43,13 @@ var diceFace = [
   "dice-6.png"
 ];
 
+//closing button and pannel selectors
+
+var ruleCloseBtn = document.querySelector(".close_btn");
+var ruleBookPanel = document.querySelector(".ruleBook");
+var ruleOpenBtn = document.querySelector(".rule");
+
+//Dice selectors
 var allElement = document.querySelector(".wrapper").children;
 
 var diceImage = allElement[allElement.length - 1];
@@ -51,11 +60,6 @@ const allElementArr = [...allElement];
 playerName = document.querySelector(".player");
 result = document.querySelector(".result");
 
-// allElementArr.pop();
-// // console.log(allElementArr.slice(allElementArr.length - 1));
-// console.log(allElementArr);
-
-// var playing = true;
 var playing = false;
 
 var reset = document.querySelector(".btn-new");
@@ -193,6 +197,8 @@ function saveScore() {
     location.reload();
   }
 
+  // ?annnouncing the winner
+
   if (player1TotalScore.textContent >= 100) {
     result.style.display = "block";
     playerName.textContent = "Player 1 You are winner";
@@ -211,4 +217,12 @@ function saveScore() {
   }
 }
 
-//annnouncing the winner
+//? opening the rule panel
+ruleOpenBtn.addEventListener("click", () => {
+  ruleBookPanel.style.display = "block";
+});
+
+//? closing the rule panel
+ruleCloseBtn.addEventListener("click", () => {
+  ruleBookPanel.style.display = "none";
+});
